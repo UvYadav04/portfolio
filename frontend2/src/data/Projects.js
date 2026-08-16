@@ -1,6 +1,16 @@
 module.exports =
     [
         {
+            "name": "Agentlytics",
+            "description1": "An AI-powered data analysis platform that lets users interact with their CSV, Parquet, and document data using natural language.",
+            "description2": "Uses a multi-agent architecture to route tasks between specialized agents for tabular analysis and document-based RAG, with Python sandbox execution for reliable data processing. Built with observability tools to support scalable, production-oriented AI workflows.",
+            "techstack": "Multi-Agent | FastAPI | React | LLMs | RAG | Docker | Redis | Chroma",
+            "link": "https://agentlytics.duckdns.org",
+            "git": "https://github.com/UvYadav04/Agentlytics-Server",
+            "position1": "20% 30%",
+            "position2": "80% 70%"
+        },
+        {
             "name": "Architekt AI",
             "description1": "Built a multi-agent AI system that generates system design architectures from natural language using a pipeline of planner, synthesizer, evaluator, and graph generation agents.",
             "description2": "Implemented iterative self-correcting loops and interactive graph visualization (React Flow) with context-aware chat using RAG for querying generated system designs.",

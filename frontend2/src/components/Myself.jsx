@@ -1,6 +1,7 @@
 import React from 'react'
 import book from '../photos/book.png'
 import resume from '../data/MyResume.pdf'
+import { GraduationCap, Zap, Briefcase } from 'lucide-react'
 
 export default function Myself() {
 
@@ -14,30 +15,24 @@ export default function Myself() {
 
                 <div className="col-xxl-7 col-xl-8 col-lg-8 col-12  left text-white opacity-75  px-0 flex flex-col place-content-start place-items-start ">
                     <h2 className='m-0 fs-sm-2 fs-2'>About me</h2>
-                    {/* XL screens */}
-                    <p className="d-none d-xxl-block text-base break-all text-slate-400" style={{ lineHeight: "19px" }}>
-                        {`Hey there! I'm a Full-Stack AI Developer specializing in building intelligent systems using LLMs, RAG pipelines, LangChain, LangGraph, and agent-based architectures with vector databases. I develop scalable, high-performance applications by combining strong backend engineering with modern frontend frameworks. With a solid foundation in data structures, algorithms, and system design, I focus on building efficient, reliable, and well-architected systems. My work emphasizes clean, maintainable code, optimized data flows, and seamless integration of AI capabilities into real-world applications.`}
+
+                    <p className="about-para text-base text-slate-400">
+                        {`I'm Dinesh, an AI Software Engineer and CS graduate from IIIT Vadodara. I build LLM-powered applications — RAG pipelines, agentic workflows, and production-ready backend architectures with LangChain and LangGraph.`}
                     </p>
 
-                    <p className="d-xxl-none d-none d-xl-block text-base break-all text-slate-400" style={{ lineHeight: "19px" }}>
-                        {`Hey there! I'm a Full-Stack AI Developer working with LLMs, RAG, LangChain, LangGraph, and vector databases to build intelligent systems. I develop scalable applications using React, TypeScript, Node.js, and FastAPI, with a strong focus on system design, efficient architectures, and clean code.`}
+                    <p className="about-para text-base text-slate-400">
+                        {`My experience spans BC2RI, where I own end-to-end frontend development for a healthcare MVP with React, TypeScript, and RTK Query; AeroYantra, where I engineered geospatial visualization tools with Cesium; and SapmenC, where I built dashboards and real-time features with Next.js and Zustand.`}
                     </p>
 
-                    <p className="d-none d-lg-block d-xl-none text-base break-all text-slate-400" style={{ lineHeight: "19px" }}>
-                        {`Hi! I'm a Full-Stack AI Developer experienced in building applications using LLMs, RAG pipelines, and modern web technologies. I focus on scalable backend systems, clean frontend interfaces, and efficient system design to create reliable and maintainable solutions.`}
+                    <p className="about-para d-none d-sm-block text-base text-slate-400">
+                        {`I focus on Generative AI, system design, and efficient algorithms — architecting multi-agent systems and RAG pipelines with a full-stack mindset. I bring reliable, production-ready software to the table, built with FastAPI, Docker, Kubernetes, and AWS.`}
                     </p>
 
-                    <p className="d-md-block d-lg-none d-none text-base break-all text-slate-400" style={{ lineHeight: "20px" }}>
-                        {`Hey! I'm a Full-Stack AI Developer building scalable applications and AI-powered systems using LLMs, RAG, and modern web technologies. I focus on clean architecture, efficient performance, and real-world problem solving.`}
-                    </p>
-
-                    <p className="d-none d-sm-block d-md-none text-base break-all text-slate-400" style={{ lineHeight: "19px" }}>
-                        {`Full-Stack AI Developer working with LLMs, RAG, and modern web stacks to build scalable and efficient applications with clean architecture.`}
-                    </p>
-
-                    <p className="d-sm-none d-lg-none d-xl-none text-base break-all text-slate-400" style={{ lineHeight: "19px" }}>
-                        {`Full-Stack AI Developer building scalable apps and AI systems using LLMs and modern technologies.`}
-                    </p>
+                    <ul className="quick-facts p-0 m-0 mt-2 mb-1">
+                        <li><GraduationCap size={15} /> B.Tech CS · IIIT Vadodara, 2026</li>
+                        <li><Zap size={15} /> Focus: LLMs · RAG · Agentic AI</li>
+                        <li><Briefcase size={15} /> Software Developer @ BC2RI</li>
+                    </ul>
 
                     <hr />
 

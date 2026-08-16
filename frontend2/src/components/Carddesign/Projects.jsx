@@ -1,81 +1,62 @@
 import React, { useState } from "react";
-import "./card.css"; // Make sure to create and import the corresponding CSS file
+import "./card.css";
 import Projects from "../../data/Projects";
 import { Link } from "react-router-dom";
-import { ImCancelCircle } from "react-icons/im";
-const Card = ({ code, name, image, text, techstack, link, git, demo, setdemo, description1, description2, hide }) => {
 
-const images = require.context('../../photos/logos', false, /\.png$/);
+const MOBILE_VISIBLE_COUNT = 3;
 
-const getImage = (name) => {
-  try {
-    return images(`./${name}.png`);
-  } catch (e) {
-    console.error(`Image not found: ${name}`);
-    return null;
-  }
-};
-    // const getImage = (image) => {
-    //     console.log(image)
-    //     return require(`../../photos/logos/${image}.png`)
-    // }
-    const getVideo = (video) => {
-        return require(`../../videos/${video}.mp4`)
-    }
+const Card = ({ name, description1, description2, techstack, link, git }) => {
     return (
-        <div className={`${code >= 2 && hide ? "tumor" : "show"} card`}>
-            <div className="imgBx" data-text={text}>
-                <img className="" src={getImage(image)} alt={text} />
+        <div className="project-card">
+            <p className="project-card__name">{name}</p>
+            <p className="project-card__stack">{techstack}</p>
+            <p className="project-card__about">
+                {description1} {description2}
+            </p>
+            <div className="project-card__links">
+                {link ? (
+                    <Link to={link} className="project-card__link">
+                        Live
+                    </Link>
+                ) : null}
+                {git ? (
+                    <Link to={git} className="project-card__link">
+                        GitHub
+                    </Link>
+                ) : null}
             </div>
-            <div className="content">
-                <p className="name"><Link to={link} className="link">{name}</Link></p>
-                <p className="link">
-                    {link ? <Link to={link} className="link"><i>Live</i></Link> : null}
-                    <Link to={git} className="link"><i>github</i></Link>
-                    {demo ? <Link onClick={() => setdemo(getVideo(name))} className="link"><i>demo</i></Link> : null}
-                </p>
-                <p className="stack">{techstack}</p>
-                <p className="about">{description1}</p>
-            </div>
-
-
         </div>
     );
 };
 
 const ProjectsCard = () => {
-    const [hide, sethide] = useState(1)
-    const [demovideo, setdemo] = useState(null)
+    const [expanded, setExpanded] = useState(false);
+
     return (
-        <div className="container2 p-0" id="projects">
-            {/* <h1 className="text-2xl underline w-full text-white mx-auto">Tech Projects</h1> */}
-            {Projects.map((card, index) => (
-                <Card
-                    key={index}
-                    code={index}
-                    name={card.name}
-                    image={card.name}
-                    description1={card.description1}
-                    description2={card.description2}
-                    techstack={card.techstack}
-                    git={card.git}
-                    demo={card.demo}
-                    link={card.link}
-                    hide={hide}
-                    setdemo={setdemo}
-                />
-            ))}
-
-            {
-                demovideo ? <div className="imageviewer">
-                    <button onClick={() => setdemo(null)} ><ImCancelCircle size={20} /></button>
-                    <video src={demovideo} autoPlay={true} controls={true} />
-                </div> : null
-            }
-
-            <div className="show w-100 ">
-                <button className="showbutton" onClick={() => sethide(!hide)} >{hide ? "show all" : "hide"}</button>
+        <div className="projects-section" id="projects">
+            <h2 className="projects-section__title">What I've Built</h2>
+            <div className={`projects-grid ${expanded ? "" : "projects-grid--collapsed"}`}>
+                {Projects.map((card) => (
+                    <Card
+                        key={card.name}
+                        name={card.name}
+                        description1={card.description1}
+                        description2={card.description2}
+                        techstack={card.techstack}
+                        link={card.link}
+                        git={card.git}
+                    />
+                ))}
             </div>
+            {Projects.length > MOBILE_VISIBLE_COUNT ? (
+                <button
+                    type="button"
+                    className="projects-see-more"
+                    onClick={() => setExpanded((prev) => !prev)}
+                >
+                    {expanded ? "See less" : "See more"}
+                </button>
+            ) : null}
         </div>
     );
 };

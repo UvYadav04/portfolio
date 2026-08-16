@@ -10,12 +10,20 @@ function Experience() {
             <VerticalTimeline>
 
                 <ExperienceBox
+                    title={"Software Developer"}
+                    company={"BC2RI"}
+                    place={"remote"}
+                    description={"I own the end-to-end frontend development of the company’s healthcare MVP. I work on translating product requirements into user-facing features, designing and building workflows for different user roles, handling authentication and access control, connecting the frontend with backend services, and ensuring the overall application is reliable, secure, and production-ready."}
+                    date={"May 2026 - Present"}
+                    Icon={<Laptop />}
+                />
+                <ExperienceBox
                     title={"Software Development Engineer Intern"}
                     company={"AeroYantra"}
                     companyLink={"https://www.aeroyantra.com/"}
                     place={"on-site"}
-                    description={"Currently working on geospatial and visualization systems, focusing on optimizing map rendering workflows and improving data fetching strategies. I develop interactive map-based tools using Cesium for real-time spatial calculations and build systems for handling complex geospatial data. I have also worked on designing multi-format overlay ingestion pipelines supporting formats like PDF, DXF, KML/KMZ, and IFC for seamless visualization. Additionally, I contribute to drone simulation features, aligning telemetry data with map interactions for spatial-temporal analysis."}
-                    date={"Dec 2025 - Present"}
+                    description={"Worked on geospatial and visualization systems, focusing on optimizing map rendering workflows and improving data fetching strategies. I developed interactive map-based tools using Cesium for real-time spatial calculations and built systems for handling complex geospatial data. I also designed multi-format overlay ingestion pipelines supporting formats like PDF, DXF, KML/KMZ, and IFC for seamless visualization. Additionally, I contributed to drone simulation features, aligning telemetry data with map interactions for spatial-temporal analysis."}
+                    date={"Dec 2025 - May 2026"}
                     Icon={<Laptop />}
                 />
                 <ExperienceBox

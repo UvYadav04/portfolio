@@ -93,21 +93,29 @@ export default function Contact() {
                     </div>
 
                     <div className="contact col-lg-5 col-md-6 col-sm-10 col-11  p-0 d-md-flex d-none justify-content-between flex-column">
-                        <input type="text" name='name' placeholder='name' className=' mb-lg-3 mb-2 px-1 border-none' value={data.name} onChange={(e) => handlechange(e)} />
-                        <input type="number" name='mobile' placeholder='mobile' className=' mb-lg-3 mb-2 px-1 border-none w-100' value={data.mobile} onChange={(e) => handlechange(e)} />
-                        <input type="email" name='email' placeholder='email' className=' mb-lg-3 mb-2 px-1 border-none' value={data.email} onChange={(e) => handlechange(e)} />
-                        <textarea name="message" id="message" placeholder='message' cols={20} rows={5} className='px-1 w-100' value={data.message} onChange={(e) => handlechange(e)} ></textarea>
-                        <button className='text-white bg bg-black ms-auto px-2 rounded-1 mt-sm-3 mt-2' onClick={() => handlemessage()} >Send Message</button>
+                        <div className={`contact-fields ${loading ? "contact-fields--sending" : ""}`}>
+                            <input type="text" name='name' placeholder='name' className=' mb-lg-3 mb-2 px-1 border-none' value={data.name} onChange={(e) => handlechange(e)} disabled={loading} />
+                            <input type="number" name='mobile' placeholder='mobile' className=' mb-lg-3 mb-2 px-1 border-none w-100' value={data.mobile} onChange={(e) => handlechange(e)} disabled={loading} />
+                            <input type="email" name='email' placeholder='email' className=' mb-lg-3 mb-2 px-1 border-none' value={data.email} onChange={(e) => handlechange(e)} disabled={loading} />
+                            <textarea name="message" id="message" placeholder='message' cols={20} rows={5} className='px-1 w-100' value={data.message} onChange={(e) => handlechange(e)} disabled={loading}></textarea>
+                        </div>
+                        <button className='text-white bg bg-black ms-auto px-2 rounded-1 mt-sm-3 mt-2 contact-submit' onClick={() => handlemessage()} disabled={loading}>
+                            {loading ? (<><span className='btn-spinner' />Sending message...</>) : "Send Message"}
+                        </button>
                     </div>
                     <div className={!left ? "contact2 col-11 pt-3 p-0 d-md-none d-flex justify-content-between flex-column slideshow" : "contact2 col-11 pt-3 p-0 d-md-none d-flex justify-content-between flex-column slidehide"}>
-                        <input type="text" name='name' placeholder='name' className=' mb-lg-3 mb-2 px-1 border-none' value={data.name} onChange={(e) => handlechange(e)} />
-                        <input type="number" name='mobile' placeholder='mobile' className=' mb-lg-3 mb-2 px-1 border-none w-100' value={data.mobile} onChange={(e) => handlechange(e)} />
-                        <input type="email" name='email' placeholder='email' className=' mb-lg-3 mb-2 px-1 border-none' value={data.email} onChange={(e) => handlechange(e)} />
-                        <textarea name="message" id="message" placeholder='message' cols={20} rows={5} className='px-1 w-100' value={data.message} onChange={(e) => handlechange(e)} ></textarea>
+                        <div className={`contact-fields ${loading ? "contact-fields--sending" : ""}`}>
+                            <input type="text" name='name' placeholder='name' className=' mb-lg-3 mb-2 px-1 border-none' value={data.name} onChange={(e) => handlechange(e)} disabled={loading} />
+                            <input type="number" name='mobile' placeholder='mobile' className=' mb-lg-3 mb-2 px-1 border-none w-100' value={data.mobile} onChange={(e) => handlechange(e)} disabled={loading} />
+                            <input type="email" name='email' placeholder='email' className=' mb-lg-3 mb-2 px-1 border-none' value={data.email} onChange={(e) => handlechange(e)} disabled={loading} />
+                            <textarea name="message" id="message" placeholder='message' cols={20} rows={5} className='px-1 w-100' value={data.message} onChange={(e) => handlechange(e)} disabled={loading}></textarea>
+                        </div>
 
                         <div className="d-flex justify-content-between ">
-                            <button className='text-white bg bg-black px-2 rounded-1 mt-sm-3 mt-2' onClick={() => setleft(true)} >back</button>
-                            <button className='text-white bg bg-black ms-auto px-2 rounded-1 mt-sm-3 mt-2' onClick={() => handlemessage()} >Send Message</button>
+                            <button className='text-white bg bg-black px-2 rounded-1 mt-sm-3 mt-2' onClick={() => setleft(true)} disabled={loading}>back</button>
+                            <button className='text-white bg bg-black ms-auto px-2 rounded-1 mt-sm-3 mt-2 contact-submit' onClick={() => handlemessage()} disabled={loading}>
+                                {loading ? (<><span className='btn-spinner' />Sending message...</>) : "Send Message"}
+                            </button>
                         </div>
                     </div>
 
@@ -131,11 +139,6 @@ export default function Contact() {
                         <button className='ms-auto me-0 mt-sm-4 mt-2 mb-0 p-1' style={{ boxShadow: "0 0 5px #0ef" }} onClick={() => setleft(false)} >send message</button>
                     </div>
 
-                    <div className={loading ? "col-12 d-flex justify-content-center align-items-center loader position-absolute top-0 h-100 opac clasity-50 w-100" : "d-none"} style={{ backgroundColor: "black " }} >
-                        <h3 className="text-center text-white w-100 fs-md-3 fs-5">
-                            please wait...
-                        </h3>
-                    </div>
                 </div>
             </div>
 
